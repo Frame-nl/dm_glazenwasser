@@ -1,473 +1,480 @@
-﻿<!-- wp:template-part {"slug":"header"} /-->
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Glazenwasser Landingpage</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    * { margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      font-family: "Segoe UI", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #0b1220;
+      background: #f6f7fb;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    a { color: inherit; text-decoration: none; }
+    p { margin: 0.4rem 0 0.9rem; }
+    ul { padding-left: 1.2rem; }
+    li { margin: 0.3rem 0; }
+    h1, h2, h3, h4 { line-height: 1.15; font-weight: 700; }
+    h2 { font-size: clamp(2rem, 2.4vw, 3rem); }
+    h3 { font-size: 1.3rem; }
 
-<!-- wp:group {"tagName":"main","className":"glz-demo"} -->
-<main class="wp-block-group glz-demo">
-	<!-- wp:html -->
-	<style>
-		.glz-demo {
-			--glz-ink: #0b1220;
-			--glz-mute: #5b6475;
-			--glz-ice: #eef6ff;
-			--glz-sand: #fff2d2;
-			--glz-mint: #e6f9ef;
-			--glz-accent: #1ca3ec;
-			--glz-accent-strong: #0b7bd6;
-			--glz-deep: #0f172a;
-			--glz-shadow: 0 30px 70px rgba(12, 18, 32, 0.12);
-			--glz-radius: 28px;
-			--glz-wide: min(1400px, calc(100% - 120px));
-		}
-		.glz-demo {
-			overflow-x: hidden;
-		}
-		.glz-demo .glz-full {
-			width: 100vw;
-			margin-left: calc(50% - 50vw);
-			margin-right: calc(50% - 50vw);
-			padding: clamp(44px, 6vw, 110px) 0;
-			position: relative;
-		}
-		.glz-demo .glz-inner {
-			width: var(--glz-wide);
-			margin: 0 auto;
-			position: relative;
-		}
-		.glz-demo .glz-hero {
-			background: radial-gradient(circle at 15% 20%, #ffffff 0%, #e7f7ff 38%, #fef3c7 100%);
-		}
-		.glz-demo .glz-hero-grid {
-			display: grid;
-			grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-			gap: clamp(28px, 4vw, 70px);
-			align-items: center;
-		}
-		.glz-demo .glz-hero h1 {
-			font-size: clamp(3rem, 4vw, 4.8rem);
-			line-height: 1.02;
-			color: var(--glz-ink);
-			max-width: 16ch;
-		}
-		.glz-demo .glz-hero p {
-			color: var(--glz-mute);
-			max-width: 44ch;
-		}
-		.glz-demo .glz-trust {
-			display: flex;
-			gap: 12px;
-			flex-wrap: wrap;
-		}
-		.glz-demo .glz-pill {
-			padding: 8px 14px;
-			border-radius: 999px;
-			background: rgba(255, 255, 255, 0.75);
-			border: 1px solid rgba(15, 23, 42, 0.08);
-			font-size: 0.9rem;
-			color: var(--glz-mute);
-		}
-		.glz-demo .wp-block-buttons {
-			display: flex;
-			flex-wrap: wrap;
-			gap: 12px;
-		}
-		.glz-demo .wp-block-button {
-			margin: 0;
-		}
-		.glz-demo .wp-block-button__link {
-			white-space: nowrap;
-		}
-		.glz-demo .glz-visual {
-			background: linear-gradient(140deg, #0ea5e9 0%, #60a5fa 45%, #c7d2fe 100%);
-			border-radius: 32px;
-			min-height: 460px;
-			position: relative;
-			box-shadow: var(--glz-shadow);
-			display: grid;
-			place-items: center;
-			color: #ffffff;
-			text-align: center;
-			font-weight: 600;
-			padding: 24px;
-		}
-		.glz-demo .glz-visual img {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-			border-radius: 28px;
-			display: block;
-		}
-		.glz-demo .glz-image img {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-			border-radius: 20px;
-			display: block;
-		}
-		.glz-demo .glz-visual::before {
-			content: "";
-			position: absolute;
-			width: 260px;
-			height: 260px;
-			border-radius: 50%;
-			background: rgba(255, 255, 255, 0.2);
-			top: -60px;
-			right: -80px;
-		}
-		.glz-demo .glz-visual::after {
-			content: "";
-			position: absolute;
-			width: 180px;
-			height: 180px;
-			border-radius: 50%;
-			background: rgba(255, 255, 255, 0.18);
-			bottom: -50px;
-			left: -60px;
-		}
-		.glz-demo .glz-section-title {
-			margin-bottom: clamp(16px, 2vw, 28px);
-		}
-		.glz-demo .glz-grid {
-			display: grid;
-			gap: clamp(18px, 3vw, 30px);
-		}
-		.glz-demo .glz-grid-4 {
-			grid-template-columns: repeat(4, minmax(0, 1fr));
-		}
-		.glz-demo .glz-grid-3 {
-			grid-template-columns: repeat(3, minmax(0, 1fr));
-		}
-		.glz-demo .glz-grid-2 {
-			grid-template-columns: repeat(2, minmax(0, 1fr));
-		}
-		.glz-demo .glz-card {
-			background: #ffffff;
-			border-radius: var(--glz-radius);
-			padding: clamp(18px, 2.6vw, 32px);
-			box-shadow: var(--glz-shadow);
-			border: 1px solid rgba(15, 23, 42, 0.06);
-		}
-		.glz-demo .glz-card h3 {
-			margin-top: 0;
-		}
-		.glz-demo .glz-usp {
-			background: linear-gradient(140deg, #f8fafc 0%, #eef2ff 100%);
-		}
-		.glz-demo .glz-services {
-			background: #0f172a;
-			color: #f8fafc;
-		}
-		.glz-demo .glz-services .glz-card {
-			background: rgba(255, 255, 255, 0.08);
-			border: 1px solid rgba(255, 255, 255, 0.16);
-			color: #f8fafc;
-			box-shadow: none;
-		}
-		.glz-demo .glz-pop {
-			background: #ffffff;
-			color: var(--glz-ink);
-			border: 2px solid var(--glz-accent);
-			transform: translateY(-12px);
-		}
-		.glz-demo .glz-stepper {
-			background: linear-gradient(120deg, #e0f2fe 0%, #dcfce7 100%);
-		}
-		.glz-demo .glz-step {
-			display: flex;
-			gap: 16px;
-			align-items: flex-start;
-		}
-		.glz-demo .glz-step span {
-			width: 46px;
-			height: 46px;
-			border-radius: 14px;
-			background: #0ea5e9;
-			color: #fff;
-			display: inline-flex;
-			align-items: center;
-			justify-content: center;
-			font-weight: 700;
-			font-size: 1.1rem;
-		}
-		.glz-demo .glz-before-after {
-			background: linear-gradient(140deg, #fff7ed 0%, #e0f2fe 100%);
-		}
-		.glz-demo .glz-image {
-			aspect-ratio: 4 / 3;
-			border-radius: 22px;
-			background: linear-gradient(135deg, #cbd5f5 0%, #e2e8f0 50%, #f1f5f9 100%);
-			border: 1px dashed rgba(15, 23, 42, 0.2);
-			display: grid;
-			place-items: center;
-			color: #64748b;
-			font-weight: 600;
-		}
-		.glz-demo .glz-proof {
-			background: var(--glz-ice);
-		}
-		.glz-demo .glz-metrics-strip {
-			width: 100vw;
-			margin-left: calc(50% - 50vw);
-			margin-right: calc(50% - 50vw);
-			background: #ffffff;
-			border-top: 1px solid rgba(15, 23, 42, 0.06);
-			border-bottom: 1px solid rgba(15, 23, 42, 0.06);
-			padding: 18px 0;
-		}
-		.glz-demo .glz-metrics {
-			display: grid;
-			grid-template-columns: repeat(4, minmax(0, 1fr));
-			gap: 12px;
-			text-align: center;
-			font-weight: 600;
-		}
-		.glz-demo .glz-metric {
-			color: var(--glz-ink);
-		}
-		.glz-demo .glz-cta {
-			background: linear-gradient(120deg, #0ea5e9 0%, #38bdf8 100%);
-			color: #fff;
-			box-shadow: var(--glz-shadow);
-		}
-		.glz-demo .glz-cta .wp-block-button__link {
-			background: #fff;
-			color: #0f172a;
-		}
-		@media (max-width: 1200px) {
-			.glz-demo {
-				--glz-wide: min(1200px, calc(100% - 64px));
-			}
-		}
-		@media (max-width: 980px) {
-			.glz-demo {
-				--glz-wide: calc(100% - 48px);
-			}
-			.glz-demo .glz-hero-grid {
-				grid-template-columns: 1fr;
-			}
-			.glz-demo .glz-grid-4 {
-				grid-template-columns: repeat(2, minmax(0, 1fr));
-			}
-			.glz-demo .glz-grid-3 {
-				grid-template-columns: repeat(2, minmax(0, 1fr));
-			}
-			.glz-demo .glz-grid-2 {
-				grid-template-columns: 1fr;
-			}
-			.glz-demo .glz-metrics {
-				grid-template-columns: repeat(2, minmax(0, 1fr));
-			}
-		}
-		@media (max-width: 640px) {
-			.glz-demo {
-				--glz-wide: calc(100% - 32px);
-			}
-			.glz-demo .glz-grid-4,
-			.glz-demo .glz-grid-3 {
-				grid-template-columns: 1fr;
-			}
-			.glz-demo .glz-metrics {
-				grid-template-columns: 1fr;
-			}
-		}
-	</style>
-	<!-- /wp:html -->
+    .glz-demo {
+      --glz-ink: #0b1220;
+      --glz-mute: #5b6475;
+      --glz-ice: #eef6ff;
+      --glz-sand: #fff2d2;
+      --glz-mint: #e6f9ef;
+      --glz-accent: #1ca3ec;
+      --glz-accent-strong: #0b7bd6;
+      --glz-deep: #0f172a;
+      --glz-shadow: 0 30px 70px rgba(12, 18, 32, 0.12);
+      --glz-radius: 28px;
+      --glz-wide: min(1400px, calc(100% - 120px));
+      overflow-x: hidden;
+      background: #f6f7fb;
+    }
 
-	<!-- wp:group {"className":"glz-full glz-hero"} -->
-	<div class="wp-block-group glz-full glz-hero">
-		<!-- wp:html -->
-		<div class="glz-inner">
-			<div class="glz-hero-grid">
-				<div>
-					<h1>Glazenwasser die je woning direct laat stralen.</h1>
-					<p class="has-large-font-size">Glas, kozijnen, zonnepanelen en gevels: strak schoon, netjes uitgevoerd en op tijd gepland. Voor particulieren en VvE’s in de regio.</p>
-					<div class="wp-block-buttons">
-						<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="tel:+31612345678">Bel direct</a></div>
-						<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="mailto:info@voorbeeldglazenwasser.nl">Offerte aanvragen</a></div>
-					</div>
-					<div class="glz-trust">
-						<span class="glz-pill">Binnen 48 uur reactie</span>
-						<span class="glz-pill">4.9/5 beoordeling</span>
-						<span class="glz-pill">300+ tevreden klanten</span>
-					</div>
-				</div>
-				<div class="glz-visual">
-					<img src="raamschoon.png" alt="Schone ramen aan de buitenzijde" />
-				</div>
-			</div>
-		</div>
-		<!-- /wp:html -->
-	</div>
-	<!-- /wp:group -->
+    .glz-demo .glz-full {
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+      padding: clamp(44px, 6vw, 110px) 0;
+      position: relative;
+    }
 
-	<!-- wp:group {"className":"glz-full glz-usp"} -->
-	<div class="wp-block-group glz-full glz-usp">
-		<!-- wp:html -->
-		<div class="glz-inner">
-			<h2 class="glz-section-title">Waarom klanten blijven</h2>
-			<div class="glz-grid glz-grid-4">
-				<div class="glz-card">
-					<h3>Streeploos schoon</h3>
-					<p>Osmosewater en professionele tools voor helder glas.</p>
-				</div>
-				<div class="glz-card">
-					<h3>Vaste afspraken</h3>
-					<p>Heldere prijzen en vaste onderhoudsmomenten.</p>
-				</div>
-				<div class="glz-card">
-					<h3>Veilig en netjes</h3>
-					<p>Respect voor woning, tuin en omgeving.</p>
-				</div>
-				<div class="glz-card">
-					<h3>Snel ingepland</h3>
-					<p>Vaak binnen enkele dagen beschikbaar.</p>
-				</div>
-			</div>
-		</div>
-		<!-- /wp:html -->
-	</div>
-	<!-- /wp:group -->
+    .glz-demo .glz-inner {
+      width: var(--glz-wide);
+      margin: 0 auto;
+      position: relative;
+    }
 
-	<!-- wp:group {"className":"glz-full glz-services"} -->
-	<div class="wp-block-group glz-full glz-services">
-		<!-- wp:html -->
-		<div class="glz-inner">
-			<h2 class="glz-section-title">Diensten op maat</h2>
-			<div class="glz-grid glz-grid-4">
-				<div class="glz-card">
-					<h3>Ramen</h3>
-					<p>Glas, glaslatten en dorpels volledig gereinigd.</p>
-				</div>
-				<div class="glz-card">
-					<h3>Kozijnen</h3>
-					<p>Hout, kunststof of aluminium, altijd fris.</p>
-				</div>
-				<div class="glz-card glz-pop">
-					<h3>Populaire keuze</h3>
-					<p><strong>Combi-beurt</strong> voor ramen + kozijnen + boeidelen.</p>
-					<p>Meest gekozen door particulieren.</p>
-				</div>
-				<div class="glz-card">
-					<h3>Zonnepanelen & gevel</h3>
-					<p>Extra licht en uitstraling, veilig gereinigd.</p>
-				</div>
-			</div>
-		</div>
-		<!-- /wp:html -->
-	</div>
-	<!-- /wp:group -->
+    .glz-demo .glz-hero {
+      background: radial-gradient(circle at 15% 20%, #ffffff 0%, #e7f7ff 38%, #fef3c7 100%);
+    }
 
-	<!-- wp:group {"className":"glz-full glz-stepper"} -->
-	<div class="wp-block-group glz-full glz-stepper">
-		<!-- wp:html -->
-		<div class="glz-inner">
-			<h2 class="glz-section-title">Zo werken we</h2>
-			<div class="glz-grid glz-grid-3">
-				<div class="glz-step">
-					<span>1</span>
-					<div>
-						<h3>Intake</h3>
-						<p>U belt of mailt. Wij reageren dezelfde dag.</p>
-					</div>
-				</div>
-				<div class="glz-step">
-					<span>2</span>
-					<div>
-						<h3>Planning</h3>
-						<p>We plannen een moment en bevestigen de prijs.</p>
-					</div>
-				</div>
-				<div class="glz-step">
-					<span>3</span>
-					<div>
-						<h3>Oplevering</h3>
-						<p>Alles schoon en gecontroleerd achtergelaten.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- /wp:html -->
-	</div>
-	<!-- /wp:group -->
+    .glz-demo .glz-hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: clamp(28px, 4vw, 70px);
+      align-items: center;
+    }
 
-	<!-- wp:group {"className":"glz-full glz-before-after"} -->
-	<div class="wp-block-group glz-full glz-before-after">
-		<!-- wp:html -->
-		<div class="glz-inner">
-			<h2 class="glz-section-title">Voor & na (voorbeeld)</h2>
-			<div class="glz-grid glz-grid-2">
-				<div>
-					<div class="glz-image"><img src="vies-raam.png" alt="Vies raam voor reiniging" /></div>
-					<p><strong>Voor:</strong> aanslag en doffe ruiten.</p>
-				</div>
-				<div>
-					<div class="glz-image"><img src="raam-na.png" alt="Ramen na reiniging" /></div>
-					<p><strong>Na:</strong> helder glas met maximale lichtinval.</p>
-				</div>
-			</div>
-		</div>
-		<!-- /wp:html -->
-	</div>
-	<!-- /wp:group -->
+    .glz-demo .glz-hero h1 {
+      font-size: clamp(3rem, 4vw, 4.8rem);
+      line-height: 1.02;
+      color: var(--glz-ink);
+      max-width: 16ch;
+    }
 
-	<!-- wp:html -->
-	<div class="glz-metrics-strip">
-		<div class="glz-inner">
-			<div class="glz-metrics">
-				<div class="glz-metric">4.9/5 gemiddeld</div>
-				<div class="glz-metric">300+ klanten</div>
-				<div class="glz-metric">15 jaar ervaring</div>
-				<div class="glz-metric">100% vaste afspraken</div>
-			</div>
-		</div>
-	</div>
-	<!-- /wp:html -->
+    .glz-demo .glz-hero p { color: var(--glz-mute); max-width: 44ch; }
 
-	<!-- wp:group {"className":"glz-full glz-proof"} -->
-	<div class="wp-block-group glz-full glz-proof">
-		<!-- wp:html -->
-		<div class="glz-inner">
-			<h2 class="glz-section-title">Social proof</h2>
-			<div class="glz-grid glz-grid-2">
-				<div class="glz-card">
-					<p>"Super netjes gewerkt en helder gecommuniceerd. We blijven vaste klant."</p>
-					<p><strong>Haro Slok, centrum Amsterdam</strong></p>
-				</div>
-				<div class="glz-card">
-					<p>"Binnen een paar dagen ingepland en het resultaat is top."</p>
-					<p><strong>Arnaut van Wingerden, Utrecht</strong></p>
-				</div>
-			</div>
-		</div>
-		<!-- /wp:html -->
-	</div>
-	<!-- /wp:group -->
+    .glz-demo .glz-trust { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 10px; }
 
-	<!-- wp:group {"className":"glz-full glz-cta"} -->
-	<div class="wp-block-group glz-full glz-cta">
-		<!-- wp:html -->
-		<div class="glz-inner">
-			<div class="glz-grid glz-grid-2" style="align-items:center;">
-				<div>
-					<h2>Klaar voor streeploos schone ramen?</h2>
-					<p class="has-large-font-size">Bel of mail vandaag nog. We plannen snel in en leveren schoon op.</p>
-				</div>
-				<div>
-					<div class="wp-block-buttons">
-						<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="tel:+31612345678">Bel direct</a></div>
-						<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="mailto:info@voorbeeldglazenwasser.nl">Offerte aanvragen</a></div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- /wp:html -->
-	</div>
-	<!-- /wp:group -->
-</main>
-<!-- /wp:group -->
+    .glz-demo .glz-pill {
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      font-size: 0.9rem;
+      color: var(--glz-mute);
+    }
 
-<!-- wp:template-part {"slug":"footer"} /-->
+    .glz-demo .wp-block-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 16px 0 6px;
+    }
 
+    .glz-demo .wp-block-button { margin: 0; }
 
+    .glz-demo .wp-block-button__link,
+    .glz-demo .wp-element-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-weight: 600;
+      background: var(--glz-accent);
+      color: #fff;
+      border: 2px solid transparent;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease;
+      white-space: nowrap;
+      box-shadow: 0 14px 30px rgba(28, 163, 236, 0.25);
+    }
 
+    .glz-demo .wp-block-button__link:hover,
+    .glz-demo .wp-element-button:hover {
+      transform: translateY(-2px);
+      background: var(--glz-accent-strong);
+    }
 
+    .glz-demo .wp-block-button__link:focus-visible,
+    .glz-demo .wp-element-button:focus-visible {
+      outline: 3px solid rgba(28, 163, 236, 0.3);
+      outline-offset: 2px;
+    }
 
+    .glz-demo .is-style-outline .wp-block-button__link {
+      background: transparent;
+      color: var(--glz-accent-strong);
+      border-color: var(--glz-accent-strong);
+      box-shadow: none;
+    }
 
+    .glz-demo .is-style-outline .wp-block-button__link:hover {
+      background: rgba(28, 163, 236, 0.08);
+      color: var(--glz-accent-strong);
+    }
+
+    .glz-demo .glz-visual {
+      background: linear-gradient(140deg, #0ea5e9 0%, #60a5fa 45%, #c7d2fe 100%);
+      border-radius: 32px;
+      min-height: 460px;
+      position: relative;
+      box-shadow: var(--glz-shadow);
+      display: grid;
+      place-items: center;
+      color: #ffffff;
+      text-align: center;
+      font-weight: 600;
+      padding: 24px;
+    }
+
+    .glz-demo .glz-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 28px;
+      display: block;
+    }
+
+    .glz-demo .glz-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+      display: block;
+    }
+
+    .glz-demo .glz-visual::before {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      top: -60px;
+      right: -80px;
+    }
+
+    .glz-demo .glz-visual::after {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.18);
+      bottom: -50px;
+      left: -60px;
+    }
+
+    .glz-demo .glz-section-title { margin-bottom: clamp(16px, 2vw, 28px); }
+
+    .glz-demo .glz-grid { display: grid; gap: clamp(18px, 3vw, 30px); }
+    .glz-demo .glz-grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .glz-demo .glz-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .glz-demo .glz-grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .glz-demo .glz-card {
+      background: #ffffff;
+      border-radius: var(--glz-radius);
+      padding: clamp(18px, 2.6vw, 32px);
+      box-shadow: var(--glz-shadow);
+      border: 1px solid rgba(15, 23, 42, 0.06);
+    }
+
+    .glz-demo .glz-card h3 { margin-top: 0; }
+
+    .glz-demo .glz-usp { background: linear-gradient(140deg, #f8fafc 0%, #eef2ff 100%); }
+
+    .glz-demo .glz-services {
+      background: #0f172a;
+      color: #f8fafc;
+    }
+
+    .glz-demo .glz-services .glz-card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: #f8fafc;
+      box-shadow: none;
+    }
+
+    .glz-demo .glz-pop {
+      background: #ffffff;
+      color: var(--glz-ink);
+      border: 2px solid var(--glz-accent);
+      transform: translateY(-12px);
+    }
+
+    .glz-demo .glz-stepper {
+      background: linear-gradient(120deg, #e0f2fe 0%, #dcfce7 100%);
+    }
+
+    .glz-demo .glz-step { display: flex; gap: 16px; align-items: flex-start; }
+
+    .glz-demo .glz-step span {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: #0ea5e9;
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .glz-demo .glz-before-after {
+      background: linear-gradient(140deg, #fff7ed 0%, #e0f2fe 100%);
+    }
+
+    .glz-demo .glz-image {
+      aspect-ratio: 4 / 3;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #cbd5f5 0%, #e2e8f0 50%, #f1f5f9 100%);
+      border: 1px dashed rgba(15, 23, 42, 0.2);
+      display: grid;
+      place-items: center;
+      color: #64748b;
+      font-weight: 600;
+    }
+
+    .glz-demo .glz-proof { background: var(--glz-ice); }
+
+    .glz-demo .glz-metrics-strip {
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+      background: #ffffff;
+      border-top: 1px solid rgba(15, 23, 42, 0.06);
+      border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+      padding: 18px 0;
+    }
+
+    .glz-demo .glz-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .glz-demo .glz-metric { color: var(--glz-ink); }
+
+    .glz-demo .glz-cta {
+      background: linear-gradient(120deg, #0ea5e9 0%, #38bdf8 100%);
+      color: #fff;
+      box-shadow: var(--glz-shadow);
+    }
+
+    .glz-demo .glz-cta .wp-block-button__link { background: #fff; color: #0f172a; }
+
+    .glz-demo .has-large-font-size { font-size: 1.15rem; }
+
+    @media (max-width: 1200px) {
+      .glz-demo { --glz-wide: min(1200px, calc(100% - 64px)); }
+    }
+
+    @media (max-width: 980px) {
+      .glz-demo { --glz-wide: calc(100% - 48px); }
+      .glz-demo .glz-hero-grid { grid-template-columns: 1fr; }
+      .glz-demo .glz-grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .glz-demo .glz-grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .glz-demo .glz-grid-2 { grid-template-columns: 1fr; }
+      .glz-demo .glz-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 640px) {
+      .glz-demo { --glz-wide: calc(100% - 32px); }
+      .glz-demo .glz-grid-4,
+      .glz-demo .glz-grid-3 { grid-template-columns: 1fr; }
+      .glz-demo .glz-metrics { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wp-block-group glz-demo">
+    <div class="wp-block-group glz-full glz-hero">
+      <div class="glz-inner">
+        <div class="glz-hero-grid">
+          <div>
+            <h1>Glazenwasser die je woning direct laat stralen.</h1>
+            <p class="has-large-font-size">Glas, kozijnen, zonnepanelen en gevels: strak schoon, netjes uitgevoerd en op tijd gepland. Voor particulieren en VvE’s in de regio.</p>
+            <div class="wp-block-buttons">
+              <div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="tel:+31612345678">Bel direct</a></div>
+              <div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="mailto:info@voorbeeldglazenwasser.nl">Offerte aanvragen</a></div>
+            </div>
+            <div class="glz-trust">
+              <span class="glz-pill">Binnen 48 uur reactie</span>
+              <span class="glz-pill">4.9/5 beoordeling</span>
+              <span class="glz-pill">300+ tevreden klanten</span>
+            </div>
+          </div>
+          <div class="glz-visual">
+            <img src="raamschoon.png" alt="Schone ramen aan de buitenzijde" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wp-block-group glz-full glz-usp">
+      <div class="glz-inner">
+        <h2 class="glz-section-title">Waarom klanten blijven</h2>
+        <div class="glz-grid glz-grid-4">
+          <div class="glz-card">
+            <h3>Streeploos schoon</h3>
+            <p>Osmosewater en professionele tools voor helder glas.</p>
+          </div>
+          <div class="glz-card">
+            <h3>Vaste afspraken</h3>
+            <p>Heldere prijzen en vaste onderhoudsmomenten.</p>
+          </div>
+          <div class="glz-card">
+            <h3>Veilig en netjes</h3>
+            <p>Respect voor woning, tuin en omgeving.</p>
+          </div>
+          <div class="glz-card">
+            <h3>Snel ingepland</h3>
+            <p>Vaak binnen enkele dagen beschikbaar.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wp-block-group glz-full glz-services">
+      <div class="glz-inner">
+        <h2 class="glz-section-title">Diensten op maat</h2>
+        <div class="glz-grid glz-grid-4">
+          <div class="glz-card">
+            <h3>Ramen</h3>
+            <p>Glas, glaslatten en dorpels volledig gereinigd.</p>
+          </div>
+          <div class="glz-card">
+            <h3>Kozijnen</h3>
+            <p>Hout, kunststof of aluminium, altijd fris.</p>
+          </div>
+          <div class="glz-card glz-pop">
+            <h3>Populaire keuze</h3>
+            <p><strong>Combi-beurt</strong> voor ramen + kozijnen + boeidelen.</p>
+            <p>Meest gekozen door particulieren.</p>
+          </div>
+          <div class="glz-card">
+            <h3>Zonnepanelen & gevel</h3>
+            <p>Extra licht en uitstraling, veilig gereinigd.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wp-block-group glz-full glz-stepper">
+      <div class="glz-inner">
+        <h2 class="glz-section-title">Zo werken we</h2>
+        <div class="glz-grid glz-grid-3">
+          <div class="glz-step">
+            <span>1</span>
+            <div>
+              <h3>Intake</h3>
+              <p>U belt of mailt. Wij reageren dezelfde dag.</p>
+            </div>
+          </div>
+          <div class="glz-step">
+            <span>2</span>
+            <div>
+              <h3>Planning</h3>
+              <p>We plannen een moment en bevestigen de prijs.</p>
+            </div>
+          </div>
+          <div class="glz-step">
+            <span>3</span>
+            <div>
+              <h3>Oplevering</h3>
+              <p>Alles schoon en gecontroleerd achtergelaten.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wp-block-group glz-full glz-before-after">
+      <div class="glz-inner">
+        <h2 class="glz-section-title">Voor & na (voorbeeld)</h2>
+        <div class="glz-grid glz-grid-2">
+          <div>
+            <div class="glz-image"><img src="vies-raam.png" alt="Vies raam voor reiniging" /></div>
+            <p><strong>Voor:</strong> aanslag en doffe ruiten.</p>
+          </div>
+          <div>
+            <div class="glz-image"><img src="raam-na.png" alt="Ramen na reiniging" /></div>
+            <p><strong>Na:</strong> helder glas met maximale lichtinval.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="glz-metrics-strip">
+      <div class="glz-inner">
+        <div class="glz-metrics">
+          <div class="glz-metric">4.9/5 gemiddeld</div>
+          <div class="glz-metric">300+ klanten</div>
+          <div class="glz-metric">15 jaar ervaring</div>
+          <div class="glz-metric">100% vaste afspraken</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wp-block-group glz-full glz-proof">
+      <div class="glz-inner">
+        <h2 class="glz-section-title">Social proof</h2>
+        <div class="glz-grid glz-grid-2">
+          <div class="glz-card">
+            <p>"Super netjes gewerkt en helder gecommuniceerd. We blijven vaste klant."</p>
+            <p><strong>Haro Slok, centrum Amsterdam</strong></p>
+          </div>
+          <div class="glz-card">
+            <p>"Binnen een paar dagen ingepland en het resultaat is top."</p>
+            <p><strong>Arnaut van Wingerden, Utrecht</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wp-block-group glz-full glz-cta">
+      <div class="glz-inner">
+        <div class="glz-grid glz-grid-2" style="align-items:center;">
+          <div>
+            <h2>Klaar voor streeploos schone ramen?</h2>
+            <p class="has-large-font-size">Bel of mail vandaag nog. We plannen snel in en leveren schoon op.</p>
+          </div>
+          <div>
+            <div class="wp-block-buttons">
+              <div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="tel:+31612345678">Bel direct</a></div>
+              <div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="mailto:info@voorbeeldglazenwasser.nl">Offerte aanvragen</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
