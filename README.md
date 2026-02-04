@@ -13,8 +13,6 @@ Deze repository is **NIET open source**.
 
 Wat wel mag:
 - Bekijken van de code
-- Lokaal openen voor demonstratie
-- Screenshotten voor presentatie
 
 Wat NIET mag:
 - Kopiëren of hergebruiken van (delen van) de code
